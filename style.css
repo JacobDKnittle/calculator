@@ -15,4 +15,29 @@ h1 {
     width: 600px;
     border-radius: 15px;
     margin: 0 auto;
+    padding: 70px;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    height: 100px;
+    margin-bottom: 50px;
+}
+
+.buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    font-size: 50px;
+    font-weight: bold;
 }
