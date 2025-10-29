@@ -9,19 +9,19 @@ const screen = document.querySelector("input");
 screen.value = 0;
 
 function add(num1, num2) {
-  return num1 + num2;
+  return (num1 + num2).toPrecision(15);
 }
 
 function subtract(num1, num2) {
-  return num1 - num2;
+  return (num1 - num2).toPrecision(15);
 }
 
 function multiply(num1, num2) {
-  return num1 * num2;
+  return (num1 * num2).toPrecision(15);
 }
 
 function division(num1, num2) {
-  return num1 / num2;
+  return (num1 / num2).toPrecision(15);
 }
 
 // calls different operator functions based on user input
