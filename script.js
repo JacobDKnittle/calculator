@@ -68,12 +68,17 @@ function manageUserInput(buttonPressed) {
   ) {
     num2 = +buttonPressed;
     screen.value = `${num1} ${operator} ${num2}`;
-  } else if (buttonPressed === '='){
+  } else if (buttonPressed === '=' && num2 !== ''){
     let calculatedResult = operate(+num1, +num2, operator);
     console.log(calculatedResult);
     num1 = calculatedResult;
     operator = '';
     num2 = '';
     screen.value = num1
+  } else if (buttonPressed === 'C') {
+    num1 = '';
+    operator = '';
+    num2 = '';
+    screen.value = 0;
   }
 }
