@@ -1,6 +1,6 @@
-let num1 = '';
-let operator = '';
-let num2 = '';
+let num1 = "";
+let operator = "";
+let num2 = "";
 let operatorValues = ["+", "-", "x", "/"];
 
 const buttonContainer = document.querySelector(".buttons-container");
@@ -9,19 +9,19 @@ const screen = document.querySelector("input");
 screen.value = 0;
 
 function add(num1, num2) {
-  return (num1 + num2).toPrecision(15);
+  return num1 + num2;
 }
 
 function subtract(num1, num2) {
-  return (num1 - num2).toPrecision(15);
+  return num1 - num2;
 }
 
 function multiply(num1, num2) {
-  return (num1 * num2).toPrecision(15);
+  return num1 * num2;
 }
 
 function division(num1, num2) {
-  return (num1 / num2).toPrecision(15);
+  return num1 / num2;
 }
 
 // calls different operator functions based on user input
@@ -67,17 +67,20 @@ function manageUserInput(buttonPressed) {
   ) {
     num2 += buttonPressed;
     screen.value = `${num1} ${operator} ${num2}`;
-  } else if (buttonPressed === '=' && num2 !== ''){
+  } else if (buttonPressed === "=" && num2 !== "") {
     let calculatedResult = operate(+num1, +num2, operator);
-    console.log(calculatedResult);
-    num1 = calculatedResult;
-    operator = '';
-    num2 = '';
-    screen.value = num1
-  } else if (buttonPressed === 'C') {
-    num1 = '';
-    operator = '';
-    num2 = '';
+    if (calculatedResult % 1 != 0) {
+      num1 = calculatedResult.toPrecision(5);
+    } else {
+      num1 = calculatedResult;
+    }
+    operator = "";
+    num2 = "";
+    screen.value = num1;
+  } else if (buttonPressed === "C") {
+    num1 = "";
+    operator = "";
+    num2 = "";
     screen.value = 0;
   }
 }
