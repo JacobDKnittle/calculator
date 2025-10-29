@@ -1,6 +1,6 @@
-let num1;
-let operator;
-let num2;
+let num1 = '';
+let operator = '';
+let num2 = '';
 let operatorValues = ["+", "-", "x", "/"];
 
 const buttonContainer = document.querySelector(".buttons-container");
@@ -47,23 +47,33 @@ buttonContainer.addEventListener("click", (e) => {
   manageUserInput(buttonPressed);
 });
 
-// manages user input whether to display to screen
+// manages user input whether to display numbers and operator to screen
 function manageUserInput(buttonPressed) {
-  if (typeof num1 === "undefined" && Number.isInteger(+buttonPressed)) {
+  if (num1 === "" && Number.isInteger(+buttonPressed)) {
     num1 = +buttonPressed;
     screen.value = `${num1}`;
   } else if (
-    typeof num1 !== "undefined" &&
-    typeof operator === "undefined" &&
-    typeof num2 === "undefined" &&
+    num1 !== "" &&
+    operator === "" &&
+    num2 === "" &&
     operatorValues.includes(buttonPressed)
   ) {
     operator = buttonPressed;
     screen.value = `${num1} ${operator}`;
-  } else if (typeof num1 !== "undefined" &&
-    typeof operator !== "undefined" &&
-    typeof num2 === "undefined" && Number.isInteger(+buttonPressed)) {
+  } else if (
+    num1 !== "" &&
+    operator !== "" &&
+    num2 === "" &&
+    Number.isInteger(+buttonPressed)
+  ) {
     num2 = +buttonPressed;
-    screen.value = `${num1} ${operator} ${num2}`
-    }
+    screen.value = `${num1} ${operator} ${num2}`;
+  } else if (buttonPressed === '='){
+    let calculatedResult = operate(+num1, +num2, operator);
+    console.log(calculatedResult);
+    num1 = calculatedResult;
+    operator = '';
+    num2 = '';
+    screen.value = num1
+  }
 }
