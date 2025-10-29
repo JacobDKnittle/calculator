@@ -50,7 +50,7 @@ buttonContainer.addEventListener("click", (e) => {
 // manages user input whether to display to screen
 function manageUserInput(buttonPressed) {
   if (typeof num1 === "undefined" && Number.isInteger(+buttonPressed)) {
-    num1 = buttonPressed;
+    num1 = +buttonPressed;
     screen.value = `${num1}`;
   } else if (
     typeof num1 !== "undefined" &&
@@ -60,5 +60,10 @@ function manageUserInput(buttonPressed) {
   ) {
     operator = buttonPressed;
     screen.value = `${num1} ${operator}`;
-  }
+  } else if (typeof num1 !== "undefined" &&
+    typeof operator !== "undefined" &&
+    typeof num2 === "undefined" && Number.isInteger(+buttonPressed)) {
+    num2 = +buttonPressed;
+    screen.value = `${num1} ${operator} ${num2}`
+    }
 }
