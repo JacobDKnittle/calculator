@@ -49,8 +49,8 @@ buttonContainer.addEventListener("click", (e) => {
 
 // manages user input whether to display numbers and operator to screen
 function manageUserInput(buttonPressed) {
-  if (num1 === "" && Number.isInteger(+buttonPressed)) {
-    num1 = +buttonPressed;
+  if (operator === "" && Number.isInteger(+buttonPressed)) {
+    num1 += buttonPressed;
     screen.value = `${num1}`;
   } else if (
     num1 !== "" &&
@@ -63,10 +63,9 @@ function manageUserInput(buttonPressed) {
   } else if (
     num1 !== "" &&
     operator !== "" &&
-    num2 === "" &&
     Number.isInteger(+buttonPressed)
   ) {
-    num2 = +buttonPressed;
+    num2 += buttonPressed;
     screen.value = `${num1} ${operator} ${num2}`;
   } else if (buttonPressed === '=' && num2 !== ''){
     let calculatedResult = operate(+num1, +num2, operator);
