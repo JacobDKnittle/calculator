@@ -26,6 +26,9 @@ input {
     height: 100px;
     margin-bottom: 50px;
     width: 90%;
+    text-align: right;
+    padding-right: 20px;
+    font-size: 40px;
 }
 
 .buttons-container {
