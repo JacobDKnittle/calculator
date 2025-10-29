@@ -33,6 +33,7 @@ input {
     flex-wrap: wrap;
     gap: 15px;
     width: 80%;
+    justify-content: center;
     
 }
 
