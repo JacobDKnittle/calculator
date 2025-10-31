@@ -49,7 +49,7 @@ buttonContainer.addEventListener("click", (e) => {
 
 // manages user input whether to display numbers and operator to screen
 function manageUserInput(buttonPressed) {
-  if (operator === "" && Number.isInteger(+buttonPressed)) {
+  if (typeof num1 === 'string' && operator === "" && Number.isInteger(+buttonPressed)) {
     num1 += buttonPressed;
     screen.value = `${num1}`;
   } else if (
